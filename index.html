@@ -12,10 +12,6 @@ content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable
 
 <style>
 
-/* =========================
-GENERAL
-========================= */
-
 *{
 margin:0;
 padding:0;
@@ -38,7 +34,7 @@ justify-content:center;
 
 
 /* =========================
-PANTALLA PLAY INICIAL
+PLAY INICIAL
 ========================= */
 
 #pantallaPlay{
@@ -66,7 +62,7 @@ box-shadow:0 0 30px rgba(229,9,20,.55);
 
 
 /* =========================
-PÁGINA CELULAR
+PÁGINA
 ========================= */
 
 .page{
@@ -151,7 +147,7 @@ font-weight:500;
 
 
 /* =========================
-TEXTO PRINCIPAL
+TEXTO
 ========================= */
 
 .hero-content{
@@ -257,11 +253,6 @@ font-weight:600;
 margin-bottom:10px;
 }
 
-
-/* =========================
-FOTOS Y VIDEOS
-========================= */
-
 .row{
 width:100%;
 display:grid;
@@ -321,16 +312,12 @@ min-height:100vh;
 <body>
 
 
-<!-- PANTALLA PLAY -->
+<!-- PLAY INICIAL -->
 
 <div id="pantallaPlay">
 
-<button
-id="botonPlay"
-onclick="document.getElementById('musica').play()">
-
+<button id="botonPlay">
 ▶ PLAY
-
 </button>
 
 </div>
@@ -340,12 +327,10 @@ onclick="document.getElementById('musica').play()">
 
 <audio
 id="musica"
-src="cancion.m4a"
+src="cancion.m4a?v=5"
 loop
-preload="auto"
-onplaying="document.getElementById('pantallaPlay').style.display='none'">
+preload="auto">
 </audio>
-
 
 
 <div class="page">
@@ -356,9 +341,8 @@ onplaying="document.getElementById('pantallaPlay').style.display='none'">
 <section class="hero-background">
 
 
-<!-- VIDEO 4 COMO PORTADA -->
-
 <video
+id="videoPrincipal"
 class="hero-video"
 autoplay
 muted
@@ -382,7 +366,6 @@ type="video/mp4">
 NETFLIX
 </div>
 
-
 <div class="menu">
 
 <span>Inicio</span>
@@ -398,15 +381,12 @@ NETFLIX
 </header>
 
 
-
 <div class="hero-content">
 
 
 <h1 class="title">
-
 Es<br>
 Ella
-
 </h1>
 
 
@@ -438,7 +418,6 @@ Lo perfecto despues de lo perfecto
 
 <div class="buttons">
 
-
 <button
 class="start"
 onclick="location.href='preguntas.html'">
@@ -456,11 +435,10 @@ onclick="mostrarInfo()">
 
 </button>
 
-
 </div>
 
-</div>
 
+</div>
 
 </section>
 
@@ -580,6 +558,26 @@ alt="Foto 3">
 
 
 <script>
+
+const musica = document.getElementById("musica");
+const botonPlay = document.getElementById("botonPlay");
+const pantallaPlay = document.getElementById("pantallaPlay");
+const videoPrincipal = document.getElementById("videoPrincipal");
+
+
+botonPlay.addEventListener("click", function(){
+
+musica.volume = 1;
+musica.currentTime = 0;
+
+musica.play();
+
+videoPrincipal.play();
+
+pantallaPlay.style.display = "none";
+
+});
+
 
 function mostrarInfo(){
 
