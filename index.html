@@ -147,7 +147,7 @@ font-weight:500;
 
 
 /* =========================
-TEXTO
+TEXTO PRINCIPAL
 ========================= */
 
 .hero-content{
@@ -253,6 +253,11 @@ font-weight:600;
 margin-bottom:10px;
 }
 
+
+/* =========================
+FOTOS Y VIDEOS
+========================= */
+
 .row{
 width:100%;
 display:grid;
@@ -312,7 +317,9 @@ min-height:100vh;
 <body>
 
 
-<!-- PLAY INICIAL -->
+<!-- =====================
+PLAY INICIAL
+====================== -->
 
 <div id="pantallaPlay">
 
@@ -323,23 +330,34 @@ min-height:100vh;
 </div>
 
 
-<!-- MÚSICA -->
+<!-- =====================
+MÚSICA
+====================== -->
 
 <audio
 id="musica"
-src="cancion.m4a?v=5"
 loop
 preload="auto">
+
+<source
+src="cancion.m4a?v=8"
+type="audio/mp4">
+
 </audio>
+
 
 
 <div class="page">
 
 
-<!-- PORTADA -->
+<!-- =====================
+PORTADA
+====================== -->
 
 <section class="hero-background">
 
+
+<!-- VIDEO 5 PRINCIPAL -->
 
 <video
 id="videoPrincipal"
@@ -351,7 +369,7 @@ playsinline
 poster="fondo.jpg">
 
 <source
-src="video4.mp4"
+src="video5.mp4"
 type="video/mp4">
 
 </video>
@@ -365,6 +383,7 @@ type="video/mp4">
 <div class="logo">
 NETFLIX
 </div>
+
 
 <div class="menu">
 
@@ -381,12 +400,15 @@ NETFLIX
 </header>
 
 
+
 <div class="hero-content">
 
 
 <h1 class="title">
+
 Es<br>
 Ella
+
 </h1>
 
 
@@ -418,6 +440,7 @@ Lo perfecto despues de lo perfecto
 
 <div class="buttons">
 
+
 <button
 class="start"
 onclick="location.href='preguntas.html'">
@@ -435,16 +458,20 @@ onclick="mostrarInfo()">
 
 </button>
 
+
 </div>
 
 
 </div>
+
 
 </section>
 
 
 
-<!-- CONTENIDO -->
+<!-- =====================
+CONTENIDO
+====================== -->
 
 <section class="content">
 
@@ -570,11 +597,24 @@ botonPlay.addEventListener("click", function(){
 musica.volume = 1;
 musica.currentTime = 0;
 
-musica.play();
+const reproduccion = musica.play();
+
+if(reproduccion !== undefined){
+
+reproduccion.then(function(){
+
+pantallaPlay.style.display = "none";
 
 videoPrincipal.play();
 
-pantallaPlay.style.display = "none";
+}).catch(function(){
+
+/* Si no arranca, queda el botón PLAY
+para poder volver a tocar */
+
+});
+
+}
 
 });
 
