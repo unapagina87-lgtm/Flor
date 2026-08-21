@@ -42,11 +42,15 @@ position:fixed;
 inset:0;
 background:#000;
 z-index:99999;
+
 display:flex;
 flex-direction:column;
 align-items:center;
 justify-content:center;
+
 gap:25px;
+
+transition:opacity .4s ease;
 }
 
 .playTexto{
@@ -89,15 +93,19 @@ background:#000;
 position:absolute;
 top:0;
 left:0;
+
 width:100%;
 height:100%;
+
 object-fit:cover;
+
 z-index:0;
 }
 
 .hero-overlay{
 position:absolute;
 inset:0;
+
 z-index:1;
 
 background:
@@ -118,27 +126,35 @@ BARRA SUPERIOR
 
 .topbar{
 width:100%;
+
 display:flex;
 align-items:center;
 justify-content:space-between;
+
 padding:18px 16px;
+
 position:absolute;
 top:0;
 left:0;
+
 z-index:10;
 }
 
 .logo{
 color:#e50914;
+
 font-size:27px;
 font-weight:900;
+
 letter-spacing:-2px;
 }
 
 .menu{
 display:flex;
 align-items:center;
+
 gap:9px;
+
 font-size:10px;
 font-weight:500;
 }
@@ -150,18 +166,26 @@ TEXTO
 
 .hero-content{
 position:absolute;
+
 left:0;
 bottom:20px;
+
 width:100%;
+
 padding:0 18px;
+
 z-index:5;
 }
 
 .title{
 font-family:Georgia, "Times New Roman", serif;
+
 font-style:italic;
+
 font-size:48px;
+
 line-height:.95;
+
 margin-bottom:15px;
 
 text-shadow:
@@ -172,9 +196,12 @@ text-shadow:
 .details{
 display:flex;
 align-items:center;
+
 gap:8px;
+
 font-size:11px;
 font-weight:bold;
+
 margin-bottom:12px;
 }
 
@@ -184,15 +211,21 @@ color:#46d369;
 
 .age{
 border:1px solid white;
+
 padding:2px 5px;
+
 font-size:9px;
 }
 
 .description{
 font-size:15px;
+
 line-height:1.45;
+
 max-width:350px;
+
 margin-bottom:18px;
+
 text-shadow:0 2px 8px black;
 }
 
@@ -203,28 +236,38 @@ BOTONES
 
 .buttons{
 display:flex;
+
 width:100%;
+
 gap:9px;
 }
 
 .buttons button{
 border:0;
+
 height:43px;
+
 border-radius:4px;
+
 font-size:14px;
 font-weight:bold;
+
 cursor:pointer;
 }
 
 .start{
 flex:1;
+
 background:white;
+
 color:black;
 }
 
 .info{
 flex:1.15;
+
 background:rgba(109,109,110,.75);
+
 color:white;
 }
 
@@ -235,56 +278,85 @@ CONTENIDO
 
 .content{
 width:100%;
+
 background:#000;
+
 padding-bottom:30px;
 }
 
 .section{
 width:100%;
+
 padding:0 14px;
+
 margin-bottom:23px;
 }
 
 .section-title{
 font-size:19px;
+
 font-weight:600;
+
 margin-bottom:10px;
 }
 
+
+/* =========================
+FOTOS Y VIDEOS
+========================= */
+
 .row{
 width:100%;
+
 display:grid;
+
 grid-template-columns:repeat(3,1fr);
+
 gap:7px;
 }
 
 .card{
 width:100%;
+
 height:180px;
+
 overflow:hidden;
+
 border-radius:4px;
+
 position:relative;
+
 background:#222;
 }
 
 .card img,
 .card video{
 width:100%;
+
 height:100%;
+
 object-fit:cover;
+
 display:block;
 }
 
 .badge{
 position:absolute;
+
 bottom:0;
 left:0;
+
 width:100%;
+
 background:#e50914;
+
 color:white;
+
 text-align:center;
+
 font-size:10px;
 font-weight:bold;
+
 padding:5px 2px;
 }
 
@@ -320,10 +392,11 @@ ENTRADA
 id="musica"
 controls
 loop
-preload="metadata">
+preload="auto">
 
 <source
-src="cancion.m4a?v=11">
+src="cancion.m4a?v=12"
+type="audio/mp4">
 
 </audio>
 
@@ -335,7 +408,7 @@ src="cancion.m4a?v=11">
 
 
 <!-- =====================
-PORTADA
+PORTADA - VIDEO 5
 ====================== -->
 
 <section class="hero-background">
@@ -362,6 +435,7 @@ type="video/mp4">
 
 <header class="topbar">
 
+
 <div class="logo">
 NETFLIX
 </div>
@@ -370,13 +444,18 @@ NETFLIX
 <div class="menu">
 
 <span>Inicio</span>
+
 <span>Series</span>
+
 <span>Películas</span>
+
 <span>Mi lista</span>
 
 </div>
 
+
 </header>
+
 
 
 <div class="hero-content">
@@ -412,7 +491,9 @@ Romance
 
 
 <p class="description">
+
 Lo perfecto despues de lo perfecto
+
 </p>
 
 
@@ -440,6 +521,7 @@ onclick="mostrarInfo()">
 
 </div>
 
+
 </div>
 
 
@@ -448,7 +530,7 @@ onclick="mostrarInfo()">
 
 
 <!-- =====================
-VIDEOS
+CONTENIDO
 ====================== -->
 
 <section class="content">
@@ -456,8 +538,11 @@ VIDEOS
 
 <div class="section">
 
+
 <h2 class="section-title">
+
 Mi lista
+
 </h2>
 
 
@@ -509,14 +594,13 @@ type="video/mp4">
 
 
 
-<!-- =====================
-FOTOS
-====================== -->
-
 <div class="section">
 
+
 <h2 class="section-title">
+
 Populares en Netflix
+
 </h2>
 
 
@@ -524,23 +608,37 @@ Populares en Netflix
 
 
 <div class="card">
-<img src="foto1.jpg" alt="Foto 1">
+
+<img
+src="foto1.jpg"
+alt="Foto 1">
+
 </div>
 
 
 <div class="card">
 
-<img src="foto2.jpg" alt="Foto 2">
+<img
+src="foto2.jpg"
+alt="Foto 2">
+
 
 <div class="badge">
+
 Recién agregado
+
 </div>
+
 
 </div>
 
 
 <div class="card">
-<img src="foto3.jpg" alt="Foto 3">
+
+<img
+src="foto3.jpg"
+alt="Foto 3">
+
 </div>
 
 
@@ -570,7 +668,11 @@ document.getElementById("videoPrincipal");
 
 musica.addEventListener("play", function(){
 
-pantallaPlay.style.display = "none";
+pantallaPlay.style.opacity = "0";
+
+pantallaPlay.style.pointerEvents = "none";
+
+pantallaPlay.style.zIndex = "-1";
 
 videoPrincipal.play();
 
