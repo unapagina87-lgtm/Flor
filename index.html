@@ -50,8 +50,6 @@ z-index:99999;
 display:flex;
 align-items:center;
 justify-content:center;
-
-transition:opacity .4s ease;
 }
 
 #botonPlay{
@@ -296,7 +294,7 @@ color:white;
 
 
 /* =========================
-CONTENIDO ABAJO
+CONTENIDO
 ========================= */
 
 .content{
@@ -395,7 +393,6 @@ padding:5px 2px;
 
 /* =========================
 PC
-SIGUE PARECIENDO CELULAR
 ========================= */
 
 @media(min-width:431px){
@@ -418,13 +415,17 @@ min-height:100vh;
 
 
 <!-- =====================
-PANTALLA INICIAL PLAY
+PANTALLA PLAY
 ====================== -->
 
 <div id="pantallaPlay">
 
-<button id="botonPlay">
+<button
+id="botonPlay"
+onclick="document.getElementById('musica').play()">
+
 ▶ PLAY
+
 </button>
 
 </div>
@@ -436,13 +437,10 @@ MÚSICA
 
 <audio
 id="musica"
-loop
-preload="auto">
-
-<source
 src="cancion.m4a"
-type="audio/mp4">
-
+loop
+preload="auto"
+onplaying="document.getElementById('pantallaPlay').style.display='none'">
 </audio>
 
 
@@ -516,9 +514,7 @@ Romance
 
 
 <p class="description">
-
 Lo perfecto despues de lo perfecto
-
 </p>
 
 
@@ -528,7 +524,7 @@ Lo perfecto despues de lo perfecto
 
 <button
 class="start"
-type="button">
+onclick="location.href='preguntas.html'">
 
 ▶ Comenzar
 
@@ -537,7 +533,6 @@ type="button">
 
 <button
 class="info"
-type="button"
 onclick="mostrarInfo()">
 
 ⓘ Más información
@@ -562,9 +557,7 @@ CONTENIDO
 <section class="content">
 
 
-<!-- =====================
-VIDEOS
-====================== -->
+<!-- VIDEOS -->
 
 <div class="section">
 
@@ -578,10 +571,7 @@ Mi lista
 
 <div class="card">
 
-<video
-controls
-muted
-playsinline>
+<video controls muted playsinline>
 
 <source
 src="video4.mp4"
@@ -592,13 +582,9 @@ type="video/mp4">
 </div>
 
 
-
 <div class="card">
 
-<video
-controls
-muted
-playsinline>
+<video controls muted playsinline>
 
 <source
 src="video5.mp4"
@@ -609,13 +595,9 @@ type="video/mp4">
 </div>
 
 
-
 <div class="card">
 
-<video
-controls
-muted
-playsinline>
+<video controls muted playsinline>
 
 <source
 src="video6.mp4"
@@ -632,9 +614,7 @@ type="video/mp4">
 
 
 
-<!-- =====================
-FOTOS
-====================== -->
+<!-- FOTOS -->
 
 <div class="section">
 
@@ -655,7 +635,6 @@ alt="Foto 1">
 </div>
 
 
-
 <div class="card">
 
 <img
@@ -667,7 +646,6 @@ Recién agregado
 </div>
 
 </div>
-
 
 
 <div class="card">
@@ -692,47 +670,6 @@ alt="Foto 3">
 
 
 <script>
-
-/* =========================
-PLAY INICIAL + MÚSICA
-========================= */
-
-const musica =
-document.getElementById("musica");
-
-const pantallaPlay =
-document.getElementById("pantallaPlay");
-
-const botonPlay =
-document.getElementById("botonPlay");
-
-
-botonPlay.addEventListener("click", function(){
-
-musica.play().then(function(){
-
-pantallaPlay.style.opacity = "0";
-
-setTimeout(function(){
-
-pantallaPlay.style.display = "none";
-
-},400);
-
-}).catch(function(){
-
-/* Si el navegador tarda,
-el botón sigue visible
-para poder volver a tocarlo */
-
-});
-
-});
-
-
-/* =========================
-MÁS INFORMACIÓN
-========================= */
 
 function mostrarInfo(){
 
