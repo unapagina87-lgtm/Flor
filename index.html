@@ -46,7 +46,6 @@ position:fixed;
 inset:0;
 background:#000;
 z-index:99999;
-
 display:flex;
 align-items:center;
 justify-content:center;
@@ -55,22 +54,14 @@ justify-content:center;
 #botonPlay{
 width:150px;
 height:150px;
-
 border-radius:50%;
-
 border:3px solid white;
-
 background:#e50914;
-
 color:white;
-
 font-size:27px;
 font-weight:900;
-
 cursor:pointer;
-
-box-shadow:
-0 0 30px rgba(229,9,20,.55);
+box-shadow:0 0 30px rgba(229,9,20,.55);
 }
 
 
@@ -79,16 +70,11 @@ PÁGINA CELULAR
 ========================= */
 
 .page{
-
 width:100%;
 max-width:430px;
-
 min-height:100vh;
-
 background:#000;
-
 overflow:hidden;
-
 position:relative;
 }
 
@@ -98,14 +84,29 @@ PORTADA
 ========================= */
 
 .hero-background{
-
 width:100%;
 min-height:670px;
-
 position:relative;
+overflow:hidden;
+background:#000;
+}
+
+.hero-video{
+position:absolute;
+top:0;
+left:0;
+width:100%;
+height:100%;
+object-fit:cover;
+z-index:0;
+}
+
+.hero-overlay{
+position:absolute;
+inset:0;
+z-index:1;
 
 background:
-
 linear-gradient(
 to bottom,
 rgba(0,0,0,.25) 0%,
@@ -113,13 +114,7 @@ rgba(0,0,0,.05) 30%,
 rgba(0,0,0,.25) 50%,
 rgba(0,0,0,.85) 85%,
 #000 100%
-),
-
-url("fondo.jpg");
-
-background-size:cover;
-background-position:center;
-background-repeat:no-repeat;
+);
 }
 
 
@@ -128,43 +123,29 @@ BARRA SUPERIOR
 ========================= */
 
 .topbar{
-
 width:100%;
-
 display:flex;
 align-items:center;
 justify-content:space-between;
-
 padding:18px 16px;
-
 position:absolute;
 top:0;
 left:0;
-
 z-index:10;
 }
 
 .logo{
-
 color:#e50914;
-
 font-size:27px;
-
 font-weight:900;
-
 letter-spacing:-2px;
 }
 
 .menu{
-
 display:flex;
-
 align-items:center;
-
 gap:9px;
-
 font-size:10px;
-
 font-weight:500;
 }
 
@@ -174,29 +155,19 @@ TEXTO PRINCIPAL
 ========================= */
 
 .hero-content{
-
 position:absolute;
-
 left:0;
 bottom:20px;
-
 width:100%;
-
 padding:0 18px;
-
-z-index:2;
+z-index:5;
 }
 
 .title{
-
 font-family:Georgia, "Times New Roman", serif;
-
 font-style:italic;
-
 font-size:48px;
-
 line-height:.95;
-
 margin-bottom:15px;
 
 text-shadow:
@@ -205,17 +176,11 @@ text-shadow:
 }
 
 .details{
-
 display:flex;
-
 align-items:center;
-
 gap:8px;
-
 font-size:11px;
-
 font-weight:bold;
-
 margin-bottom:12px;
 }
 
@@ -224,24 +189,16 @@ color:#46d369;
 }
 
 .age{
-
 border:1px solid white;
-
 padding:2px 5px;
-
 font-size:9px;
 }
 
 .description{
-
 font-size:15px;
-
 line-height:1.45;
-
 max-width:350px;
-
 margin-bottom:18px;
-
 text-shadow:0 2px 8px black;
 }
 
@@ -251,44 +208,29 @@ BOTONES
 ========================= */
 
 .buttons{
-
 display:flex;
-
 width:100%;
-
 gap:9px;
 }
 
 .buttons button{
-
 border:0;
-
 height:43px;
-
 border-radius:4px;
-
 font-size:14px;
-
 font-weight:bold;
-
 cursor:pointer;
 }
 
 .start{
-
 flex:1;
-
 background:white;
-
 color:black;
 }
 
 .info{
-
 flex:1.15;
-
 background:rgba(109,109,110,.75);
-
 color:white;
 }
 
@@ -298,29 +240,20 @@ CONTENIDO
 ========================= */
 
 .content{
-
 width:100%;
-
 background:#000;
-
 padding-bottom:30px;
 }
 
 .section{
-
 width:100%;
-
 padding:0 14px;
-
 margin-bottom:23px;
 }
 
 .section-title{
-
 font-size:19px;
-
 font-weight:600;
-
 margin-bottom:10px;
 }
 
@@ -330,63 +263,39 @@ FOTOS Y VIDEOS
 ========================= */
 
 .row{
-
 width:100%;
-
 display:grid;
-
 grid-template-columns:repeat(3,1fr);
-
 gap:7px;
 }
 
 .card{
-
 width:100%;
-
 height:180px;
-
 overflow:hidden;
-
 border-radius:4px;
-
 position:relative;
-
 background:#222;
 }
 
 .card img,
 .card video{
-
 width:100%;
-
 height:100%;
-
 object-fit:cover;
-
 display:block;
 }
 
 .badge{
-
 position:absolute;
-
 bottom:0;
-
 left:0;
-
 width:100%;
-
 background:#e50914;
-
 color:white;
-
 text-align:center;
-
 font-size:10px;
-
 font-weight:bold;
-
 padding:5px 2px;
 }
 
@@ -398,9 +307,7 @@ PC
 @media(min-width:431px){
 
 .page{
-
 width:430px;
-
 min-height:100vh;
 }
 
@@ -414,9 +321,7 @@ min-height:100vh;
 <body>
 
 
-<!-- =====================
-PANTALLA PLAY
-====================== -->
+<!-- PANTALLA PLAY -->
 
 <div id="pantallaPlay">
 
@@ -431,9 +336,7 @@ onclick="document.getElementById('musica').play()">
 </div>
 
 
-<!-- =====================
-MÚSICA
-====================== -->
+<!-- MÚSICA -->
 
 <audio
 id="musica"
@@ -448,11 +351,29 @@ onplaying="document.getElementById('pantallaPlay').style.display='none'">
 <div class="page">
 
 
-<!-- =====================
-PORTADA
-====================== -->
+<!-- PORTADA -->
 
 <section class="hero-background">
+
+
+<!-- VIDEO 4 COMO PORTADA -->
+
+<video
+class="hero-video"
+autoplay
+muted
+loop
+playsinline
+poster="fondo.jpg">
+
+<source
+src="video4.mp4"
+type="video/mp4">
+
+</video>
+
+
+<div class="hero-overlay"></div>
 
 
 <header class="topbar">
@@ -484,11 +405,9 @@ NETFLIX
 <h1 class="title">
 
 Es<br>
-
 Ella
 
 </h1>
-
 
 
 <div class="details">
@@ -512,11 +431,9 @@ Romance
 </div>
 
 
-
 <p class="description">
 Lo perfecto despues de lo perfecto
 </p>
-
 
 
 <div class="buttons">
@@ -542,7 +459,6 @@ onclick="mostrarInfo()">
 
 </div>
 
-
 </div>
 
 
@@ -550,14 +466,10 @@ onclick="mostrarInfo()">
 
 
 
-<!-- =====================
-CONTENIDO
-====================== -->
+<!-- CONTENIDO -->
 
 <section class="content">
 
-
-<!-- VIDEOS -->
 
 <div class="section">
 
@@ -613,8 +525,6 @@ type="video/mp4">
 </div>
 
 
-
-<!-- FOTOS -->
 
 <div class="section">
 
