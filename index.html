@@ -34,7 +34,7 @@ justify-content:center;
 
 
 /* =========================
-PLAY INICIAL
+ENTRADA
 ========================= */
 
 #pantallaPlay{
@@ -43,21 +43,19 @@ inset:0;
 background:#000;
 z-index:99999;
 display:flex;
+flex-direction:column;
 align-items:center;
 justify-content:center;
+gap:25px;
 }
 
-#botonPlay{
-width:150px;
-height:150px;
-border-radius:50%;
-border:3px solid white;
-background:#e50914;
-color:white;
-font-size:27px;
+.playTexto{
+font-size:28px;
 font-weight:900;
-cursor:pointer;
-box-shadow:0 0 30px rgba(229,9,20,.55);
+}
+
+#musica{
+width:310px;
 }
 
 
@@ -147,7 +145,7 @@ font-weight:500;
 
 
 /* =========================
-TEXTO PRINCIPAL
+TEXTO
 ========================= */
 
 .hero-content{
@@ -253,11 +251,6 @@ font-weight:600;
 margin-bottom:10px;
 }
 
-
-/* =========================
-FOTOS Y VIDEOS
-========================= */
-
 .row{
 width:100%;
 display:grid;
@@ -296,10 +289,6 @@ padding:5px 2px;
 }
 
 
-/* =========================
-PC
-========================= */
-
 @media(min-width:431px){
 
 .page{
@@ -318,32 +307,27 @@ min-height:100vh;
 
 
 <!-- =====================
-PLAY INICIAL
+ENTRADA
 ====================== -->
 
 <div id="pantallaPlay">
 
-<button id="botonPlay">
+<div class="playTexto">
 ▶ PLAY
-</button>
-
 </div>
-
-
-<!-- =====================
-MÚSICA
-====================== -->
 
 <audio
 id="musica"
+controls
 loop
-preload="auto">
+preload="metadata">
 
 <source
-src="cancion.m4a?v=8"
-type="audio/mp4">
+src="cancion.m4a?v=11">
 
 </audio>
+
+</div>
 
 
 
@@ -356,8 +340,6 @@ PORTADA
 
 <section class="hero-background">
 
-
-<!-- VIDEO 5 PRINCIPAL -->
 
 <video
 id="videoPrincipal"
@@ -388,17 +370,13 @@ NETFLIX
 <div class="menu">
 
 <span>Inicio</span>
-
 <span>Series</span>
-
 <span>Películas</span>
-
 <span>Mi lista</span>
 
 </div>
 
 </header>
-
 
 
 <div class="hero-content">
@@ -443,7 +421,7 @@ Lo perfecto despues de lo perfecto
 
 <button
 class="start"
-onclick="location.href='preguntas.html'">
+type="button">
 
 ▶ Comenzar
 
@@ -452,6 +430,7 @@ onclick="location.href='preguntas.html'">
 
 <button
 class="info"
+type="button"
 onclick="mostrarInfo()">
 
 ⓘ Más información
@@ -461,7 +440,6 @@ onclick="mostrarInfo()">
 
 </div>
 
-
 </div>
 
 
@@ -470,7 +448,7 @@ onclick="mostrarInfo()">
 
 
 <!-- =====================
-CONTENIDO
+VIDEOS
 ====================== -->
 
 <section class="content">
@@ -531,6 +509,10 @@ type="video/mp4">
 
 
 
+<!-- =====================
+FOTOS
+====================== -->
+
 <div class="section">
 
 <h2 class="section-title">
@@ -542,19 +524,13 @@ Populares en Netflix
 
 
 <div class="card">
-
-<img
-src="foto1.jpg"
-alt="Foto 1">
-
+<img src="foto1.jpg" alt="Foto 1">
 </div>
 
 
 <div class="card">
 
-<img
-src="foto2.jpg"
-alt="Foto 2">
+<img src="foto2.jpg" alt="Foto 2">
 
 <div class="badge">
 Recién agregado
@@ -564,11 +540,7 @@ Recién agregado
 
 
 <div class="card">
-
-<img
-src="foto3.jpg"
-alt="Foto 3">
-
+<img src="foto3.jpg" alt="Foto 3">
 </div>
 
 
@@ -586,35 +558,21 @@ alt="Foto 3">
 
 <script>
 
-const musica = document.getElementById("musica");
-const botonPlay = document.getElementById("botonPlay");
-const pantallaPlay = document.getElementById("pantallaPlay");
-const videoPrincipal = document.getElementById("videoPrincipal");
+const musica =
+document.getElementById("musica");
+
+const pantallaPlay =
+document.getElementById("pantallaPlay");
+
+const videoPrincipal =
+document.getElementById("videoPrincipal");
 
 
-botonPlay.addEventListener("click", function(){
-
-musica.volume = 1;
-musica.currentTime = 0;
-
-const reproduccion = musica.play();
-
-if(reproduccion !== undefined){
-
-reproduccion.then(function(){
+musica.addEventListener("play", function(){
 
 pantallaPlay.style.display = "none";
 
 videoPrincipal.play();
-
-}).catch(function(){
-
-/* Si no arranca, queda el botón PLAY
-para poder volver a tocar */
-
-});
-
-}
 
 });
 
