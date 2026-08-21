@@ -1,0 +1,633 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+<title>Mi película</title>
+
+<style>
+
+/* =========================
+GENERAL
+========================= */
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+html{
+background:#000;
+}
+
+body{
+margin:0;
+background:#000;
+color:white;
+font-family:Arial, Helvetica, sans-serif;
+
+overflow-x:hidden;
+
+display:flex;
+justify-content:center;
+}
+
+
+/* =========================
+PÁGINA CELULAR
+========================= */
+
+.page{
+
+width:100%;
+max-width:430px;
+
+min-height:100vh;
+
+background:#000;
+
+overflow:hidden;
+
+position:relative;
+}
+
+
+/* =========================
+PORTADA
+========================= */
+
+.hero-background{
+
+width:100%;
+min-height:670px;
+
+position:relative;
+
+background:
+
+linear-gradient(
+to bottom,
+rgba(0,0,0,.25) 0%,
+rgba(0,0,0,.05) 30%,
+rgba(0,0,0,.25) 50%,
+rgba(0,0,0,.85) 85%,
+#000 100%
+),
+
+url("fondo.jpg");
+
+background-size:cover;
+background-position:center;
+background-repeat:no-repeat;
+}
+
+
+/* =========================
+BARRA SUPERIOR
+========================= */
+
+.topbar{
+
+width:100%;
+
+display:flex;
+align-items:center;
+justify-content:space-between;
+
+padding:18px 16px;
+
+position:absolute;
+top:0;
+left:0;
+
+z-index:10;
+}
+
+.logo{
+
+color:#e50914;
+
+font-size:27px;
+
+font-weight:900;
+
+letter-spacing:-2px;
+}
+
+.menu{
+
+display:flex;
+
+align-items:center;
+
+gap:9px;
+
+font-size:10px;
+
+font-weight:500;
+}
+
+
+/* =========================
+TEXTO PRINCIPAL
+========================= */
+
+.hero-content{
+
+position:absolute;
+
+left:0;
+bottom:20px;
+
+width:100%;
+
+padding:0 18px;
+}
+
+.title{
+
+font-family:Georgia, "Times New Roman", serif;
+
+font-style:italic;
+
+font-size:48px;
+
+line-height:.95;
+
+margin-bottom:15px;
+
+text-shadow:
+0 2px 5px rgba(0,0,0,.8),
+0 5px 20px rgba(0,0,0,.8);
+}
+
+
+.details{
+
+display:flex;
+
+align-items:center;
+
+gap:8px;
+
+font-size:11px;
+
+font-weight:bold;
+
+margin-bottom:12px;
+}
+
+.match{
+
+color:#46d369;
+}
+
+.age{
+
+border:1px solid white;
+
+padding:2px 5px;
+
+font-size:9px;
+}
+
+
+.description{
+
+font-size:15px;
+
+line-height:1.45;
+
+max-width:350px;
+
+margin-bottom:18px;
+
+text-shadow:0 2px 8px black;
+}
+
+
+/* =========================
+BOTONES
+========================= */
+
+.buttons{
+
+display:flex;
+
+width:100%;
+
+gap:9px;
+}
+
+
+button{
+
+border:0;
+
+height:43px;
+
+border-radius:4px;
+
+font-size:14px;
+
+font-weight:bold;
+
+cursor:pointer;
+}
+
+
+.start{
+
+flex:1;
+
+background:white;
+
+color:black;
+}
+
+
+.info{
+
+flex:1.15;
+
+background:rgba(109,109,110,.75);
+
+color:white;
+}
+
+
+/* =========================
+CONTENIDO ABAJO
+========================= */
+
+.content{
+
+width:100%;
+
+background:#000;
+
+padding-bottom:30px;
+}
+
+
+.section{
+
+width:100%;
+
+padding:0 14px;
+
+margin-bottom:23px;
+}
+
+
+.section-title{
+
+font-size:19px;
+
+font-weight:600;
+
+margin-bottom:10px;
+}
+
+
+/* =========================
+FOTOS
+========================= */
+
+.row{
+
+width:100%;
+
+display:grid;
+
+grid-template-columns:
+repeat(3, 1fr);
+
+gap:7px;
+}
+
+
+.card{
+
+width:100%;
+
+height:180px;
+
+overflow:hidden;
+
+border-radius:4px;
+
+position:relative;
+
+background:#222;
+}
+
+
+.card img,
+.card video{
+
+width:100%;
+
+height:100%;
+
+object-fit:cover;
+
+display:block;
+}
+
+
+.badge{
+
+position:absolute;
+
+bottom:0;
+
+left:0;
+
+width:100%;
+
+background:#e50914;
+
+color:white;
+
+text-align:center;
+
+font-size:10px;
+
+font-weight:bold;
+
+padding:5px 2px;
+}
+
+
+/* =========================
+PC
+SIGUE PARECIENDO CELULAR
+========================= */
+
+@media(min-width:431px){
+
+.page{
+
+width:430px;
+
+min-height:100vh;
+}
+
+}
+
+.card{
+height:180px !important;
+}
+
+.card img,
+.card video{
+
+width:100%; !important;
+
+height:100%; !important;
+
+object-fit:cover;!important;
+
+display:block;!important;
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<div class="page">
+
+
+<!-- =====================
+PORTADA
+====================== -->
+
+<section class="hero-background">
+
+
+<header class="topbar">
+
+<div class="logo">
+NETFLIX
+</div>
+
+
+<div class="menu">
+
+<span>Inicio</span>
+
+<span>Series</span>
+
+<span>Películas</span>
+
+<span>Mi lista</span>
+
+</div>
+
+</header>
+
+
+
+<div class="hero-content">
+
+
+<!-- CAMBIÁ EL TÍTULO -->
+
+<h1 class="title">
+
+Es<br>
+
+Ella
+
+</h1>
+
+
+
+<!-- DATOS -->
+
+<div class="details">
+
+<span class="match">
+99% para ti
+</span>
+
+<span>
+2022
+</span>
+
+<span class="age">
++22
+</span>
+
+<span>
+Romance
+</span>
+
+</div>
+
+
+
+<!-- CAMBIÁ ESTE TEXTO -->
+
+<p class="description">
+Lo perfecto despues de lo perfecto
+
+</p>
+
+
+
+<!-- BOTONES -->
+
+<div class="buttons">
+
+
+<button
+class="start"
+onclick="location.href='preguntas.html'">
+
+▶ Comenzar
+
+</button>
+
+
+<button
+class="info"
+onclick="mostrarInfo()">
+
+ⓘ Más información
+
+</button>
+
+
+</div>
+
+
+</div>
+
+
+</section>
+
+
+
+<!-- =====================
+FILAS DE FOTOS
+====================== -->
+
+<section class="content">
+
+
+<div class="section">
+
+
+<h2 class="section-title">
+
+Mi lista
+
+</h2>
+
+
+<div class="row">
+
+<div class="card">
+<video controls playsinline>
+<source src="video4.mp4" type="video/mp4">
+</video>
+</div>
+
+<div class="card">
+<video controls playsinline>
+<source src="video5.mp4" type="video/mp4">
+</video>
+</div>
+
+<div class="card">
+<video controls playsinline>
+<source src="video6.mp4" type="video/mp4">
+</video>
+
+</div>
+
+</div>
+</div>
+
+<div class="selection">
+<h2 class="section-title">Populares en Netflix</h2>
+<div class="row">
+
+
+<div class="card">
+
+<img src="foto1.jpg">
+
+</div>
+
+
+<div class="card">
+
+<img src="foto2.jpg">
+
+<div class="badge">
+
+Recién agregado
+
+</div>
+
+</div>
+
+
+<div class="card">
+
+<img src="foto3.jpg">
+
+</div>
+
+
+</div>
+
+
+</div>
+
+
+
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+
+</section>
+
+
+</div>
+
+
+
+<script>
+
+function mostrarInfo(){
+
+alert("Te quiero enana.");
+
+}
+
+</script>
+
+
+</body>
+
+</html>
