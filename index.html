@@ -618,15 +618,17 @@ Recién agregado
 
 
 <script>
-
 function mostrarInfo(){
 
-document.getElementById("musica").play();
+  const musica = document.getElementById("musica");
 
-alert("Te quiero enana.");
+  musica.play();
+
+  setTimeout(function(){
+    alert("Te quiero enana.");
+  }, 1000);
 
 }
-
 </script>
 <audio id="musica" loop>
 <source src="cancion.m4a" type="audio/mp4">
