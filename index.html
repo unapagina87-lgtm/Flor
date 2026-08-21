@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
 
 <head>
@@ -31,11 +31,48 @@ margin:0;
 background:#000;
 color:white;
 font-family:Arial, Helvetica, sans-serif;
-
 overflow-x:hidden;
-
 display:flex;
 justify-content:center;
+}
+
+
+/* =========================
+PANTALLA PLAY INICIAL
+========================= */
+
+#pantallaPlay{
+position:fixed;
+inset:0;
+background:#000;
+z-index:99999;
+
+display:flex;
+align-items:center;
+justify-content:center;
+
+transition:opacity .4s ease;
+}
+
+#botonPlay{
+width:150px;
+height:150px;
+
+border-radius:50%;
+
+border:3px solid white;
+
+background:#e50914;
+
+color:white;
+
+font-size:27px;
+font-weight:900;
+
+cursor:pointer;
+
+box-shadow:
+0 0 30px rgba(229,9,20,.55);
 }
 
 
@@ -148,6 +185,8 @@ bottom:20px;
 width:100%;
 
 padding:0 18px;
+
+z-index:2;
 }
 
 .title{
@@ -167,7 +206,6 @@ text-shadow:
 0 5px 20px rgba(0,0,0,.8);
 }
 
-
 .details{
 
 display:flex;
@@ -184,7 +222,6 @@ margin-bottom:12px;
 }
 
 .match{
-
 color:#46d369;
 }
 
@@ -196,7 +233,6 @@ padding:2px 5px;
 
 font-size:9px;
 }
-
 
 .description{
 
@@ -225,8 +261,7 @@ width:100%;
 gap:9px;
 }
 
-
-button{
+.buttons button{
 
 border:0;
 
@@ -241,7 +276,6 @@ font-weight:bold;
 cursor:pointer;
 }
 
-
 .start{
 
 flex:1;
@@ -250,7 +284,6 @@ background:white;
 
 color:black;
 }
-
 
 .info{
 
@@ -275,7 +308,6 @@ background:#000;
 padding-bottom:30px;
 }
 
-
 .section{
 
 width:100%;
@@ -284,7 +316,6 @@ padding:0 14px;
 
 margin-bottom:23px;
 }
-
 
 .section-title{
 
@@ -297,7 +328,7 @@ margin-bottom:10px;
 
 
 /* =========================
-FOTOS
+FOTOS Y VIDEOS
 ========================= */
 
 .row{
@@ -306,12 +337,10 @@ width:100%;
 
 display:grid;
 
-grid-template-columns:
-repeat(3, 1fr);
+grid-template-columns:repeat(3,1fr);
 
 gap:7px;
 }
-
 
 .card{
 
@@ -328,7 +357,6 @@ position:relative;
 background:#222;
 }
 
-
 .card img,
 .card video{
 
@@ -340,7 +368,6 @@ object-fit:cover;
 
 display:block;
 }
-
 
 .badge{
 
@@ -382,28 +409,42 @@ min-height:100vh;
 
 }
 
-.card{
-height:180px !important;
-}
-
-.card img,
-.card video{
-
-width:100%; !important;
-
-height:100%; !important;
-
-object-fit:cover;!important;
-
-display:block;!important;
-}
-
 </style>
 
 </head>
 
 
 <body>
+
+
+<!-- =====================
+PANTALLA INICIAL PLAY
+====================== -->
+
+<div id="pantallaPlay">
+
+<button id="botonPlay">
+▶ PLAY
+</button>
+
+</div>
+
+
+<!-- =====================
+MÚSICA
+====================== -->
+
+<audio
+id="musica"
+loop
+preload="auto">
+
+<source
+src="cancion.m4a"
+type="audio/mp4">
+
+</audio>
+
 
 
 <div class="page">
@@ -442,8 +483,6 @@ NETFLIX
 <div class="hero-content">
 
 
-<!-- CAMBIÁ EL TÍTULO -->
-
 <h1 class="title">
 
 Es<br>
@@ -453,8 +492,6 @@ Ella
 </h1>
 
 
-
-<!-- DATOS -->
 
 <div class="details">
 
@@ -478,23 +515,20 @@ Romance
 
 
 
-<!-- CAMBIÁ ESTE TEXTO -->
-
 <p class="description">
+
 Lo perfecto despues de lo perfecto
 
 </p>
 
 
 
-<!-- BOTONES -->
-
 <div class="buttons">
 
 
 <button
 class="start"
-onclick="location.href='preguntas.html'">
+type="button">
 
 ▶ Comenzar
 
@@ -503,6 +537,7 @@ onclick="location.href='preguntas.html'">
 
 <button
 class="info"
+type="button"
 onclick="mostrarInfo()">
 
 ⓘ Más información
@@ -521,89 +556,128 @@ onclick="mostrarInfo()">
 
 
 <!-- =====================
-FILAS DE FOTOS
+CONTENIDO
 ====================== -->
 
 <section class="content">
 
 
+<!-- =====================
+VIDEOS
+====================== -->
+
 <div class="section">
 
-
 <h2 class="section-title">
-
 Mi lista
-
 </h2>
 
 
 <div class="row">
 
-<div class="card">
-<video controls muted playsinline>
-<source src="video4.mp4" type="video/mp4">
-</video>
-</div>
 
 <div class="card">
-<video controls muted playsinline>
-<source src="video5.mp4" type="video/mp4">
-</video>
-</div>
 
-<div class="card">
-<video controls muted playsinline>
-<source src="video6.mp4" type="video/mp4">
+<video
+controls
+muted
+playsinline>
+
+<source
+src="video4.mp4"
+type="video/mp4">
+
 </video>
 
 </div>
 
-</div>
+
+
+<div class="card">
+
+<video
+controls
+muted
+playsinline>
+
+<source
+src="video5.mp4"
+type="video/mp4">
+
+</video>
+
 </div>
 
-<div class="selection">
-<h2 class="section-title">Populares en Netflix</h2>
+
+
+<div class="card">
+
+<video
+controls
+muted
+playsinline>
+
+<source
+src="video6.mp4"
+type="video/mp4">
+
+</video>
+
+</div>
+
+
+</div>
+
+</div>
+
+
+
+<!-- =====================
+FOTOS
+====================== -->
+
+<div class="section">
+
+<h2 class="section-title">
+Populares en Netflix
+</h2>
+
+
 <div class="row">
 
 
 <div class="card">
 
-<img src="foto1.jpg">
+<img
+src="foto1.jpg"
+alt="Foto 1">
 
 </div>
 
 
+
 <div class="card">
 
-<img src="foto2.jpg">
+<img
+src="foto2.jpg"
+alt="Foto 2">
 
 <div class="badge">
-
 Recién agregado
-
 </div>
 
 </div>
+
 
 
 <div class="card">
 
-<img src="foto3.jpg">
+<img
+src="foto3.jpg"
+alt="Foto 3">
 
 </div>
 
-
-</div>
-
-
-</div>
-
-
-
-
-</div>
-
-</div>
 
 </div>
 
@@ -618,22 +692,55 @@ Recién agregado
 
 
 <script>
+
+/* =========================
+PLAY INICIAL + MÚSICA
+========================= */
+
+const musica =
+document.getElementById("musica");
+
+const pantallaPlay =
+document.getElementById("pantallaPlay");
+
+const botonPlay =
+document.getElementById("botonPlay");
+
+
+botonPlay.addEventListener("click", function(){
+
+musica.play().then(function(){
+
+pantallaPlay.style.opacity = "0";
+
+setTimeout(function(){
+
+pantallaPlay.style.display = "none";
+
+},400);
+
+}).catch(function(){
+
+/* Si el navegador tarda,
+el botón sigue visible
+para poder volver a tocarlo */
+
+});
+
+});
+
+
+/* =========================
+MÁS INFORMACIÓN
+========================= */
+
 function mostrarInfo(){
 
-  const musica = document.getElementById("musica");
-
-  musica.play();
-
-  setTimeout(function(){
-    alert("Te quiero enana.");
-  }, 1000);
+alert("Te quiero enana.");
 
 }
-</script>
-<audio id="musica" loop>
-<source src="cancion.m4a" type="audio/mp4">
-</audio>
 
+</script>
 
 
 </body>
